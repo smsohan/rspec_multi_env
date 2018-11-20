@@ -8,6 +8,6 @@ module RspecMultiEnv
   end
 
   def self.use(env_name)
-    RspecMultiEnv::EnvironmentConfiguration.instance.current env_name
+    RspecMultiEnv::EnvironmentConfiguration.instance.current=env_name
   end
 end
