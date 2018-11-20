@@ -5,6 +5,14 @@ module RspecMultiEnv
 
     def reset
       @environments = []
+      self
+    end
+
+    def when(name, &block)
+      register(name)
+      if current?(name)
+        yield
+      end
     end
 
     def register(name)

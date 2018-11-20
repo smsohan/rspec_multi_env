@@ -24,17 +24,17 @@ Or install it yourself as:
 ## Usage
 
 ```ruby
-describe 'Your Test' do
-  before(:all) do
-    environment :sandboxed do
-      #... custom code/configuration
-    end
-
-    environment :staging do
-      #... custom code/configuration
-    end
+RspecMultiEnv.setup do |env|
+  env.when :sandboxed do
+    #... custom code/configuration
   end
 
+  env.when :staging do
+    #... custom code/configuration
+  end
+end
+
+describe 'Your Test' do
   # rest of your tests that use the env specific config
 end
 ```
