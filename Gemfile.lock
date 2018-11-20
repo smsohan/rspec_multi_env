@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    rspec_multi_env (1.0.0)
+    rspec_multi_env (2.0.0)
 
 GEM
   remote: https://rubygems.org/
