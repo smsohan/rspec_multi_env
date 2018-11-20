@@ -25,7 +25,7 @@ Or install it yourself as:
 
 ```ruby
 #spec_helper.rb
-RspecMultiEnv.use ENV['TEST_ENV']
+RspecMultiEnv.use ENV['TEST_ENV'].to_sym
 
 # some_spec.rb
 RspecMultiEnv.setup do |env|
