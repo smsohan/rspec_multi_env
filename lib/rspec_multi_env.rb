@@ -6,4 +6,8 @@ module RspecMultiEnv
   def self.setup(&block)
     yield RspecMultiEnv::EnvironmentConfiguration.instance.reset
   end
+
+  def self.use(env_name)
+    RspecMultiEnv::EnvironmentConfiguration.instance.current env_name
+  end
 end

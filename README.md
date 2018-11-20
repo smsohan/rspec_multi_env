@@ -24,6 +24,10 @@ Or install it yourself as:
 ## Usage
 
 ```ruby
+#spec_helper.rb
+RspecMultiEnv.use ENV['TEST_ENV']
+
+# some_spec.rb
 RspecMultiEnv.setup do |env|
   env.when :sandboxed do
     #... custom code/configuration
@@ -40,8 +44,8 @@ end
 ```
 
 ```bash
-$ RSPEC_ENV=sandboxed bin/rspec
-$ RSPEC_ENV=staging bin/rspec
+$ TEST_ENV=sandboxed bin/rspec
+$ TEST_ENV=staging bin/rspec
 ```
 
 ## Features

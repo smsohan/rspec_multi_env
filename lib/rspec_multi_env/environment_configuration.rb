@@ -32,7 +32,11 @@ module RspecMultiEnv
     end
 
     def current
-      ENV['RSPEC_ENV'].to_sym
+      @current
+    end
+
+    def use(env_name)
+      @current = env_name
     end
   end
 end
