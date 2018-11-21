@@ -3,8 +3,15 @@ require "rspec_multi_env/environment_configuration"
 require "rspec_multi_env/hooks"
 
 module RspecMultiEnv
-  def self.setup(&block)
-    yield RspecMultiEnv::EnvironmentConfiguration.instance.reset
+  def self.setup(*envs)
+    if block_given?
+      yield RspecMultiEnv::EnvironmentConfiguration.instance.reset
+    else
+      RspecMultiEnv::EnvironmentConfiguration.instance.reset
+      envs.each do |env|
+        RspecMultiEnv::EnvironmentConfiguration.instance.register(env)
+      end
+    end
   end
 
   def self.use(env_name)
