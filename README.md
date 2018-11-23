@@ -28,18 +28,14 @@ Or install it yourself as:
 RspecMultiEnv.use ENV['TEST_ENV'].to_sym
 
 # some_spec.rb
-RspecMultiEnv.setup do |env|
-  env.when :sandboxed do
-    #... custom code/configuration
+describe 'Your Test', if: RspecMultiEnv.on(:sandboxed, :staging) do
+  before :all do
+    if RspecMultiEnv.current? :sandboxed
+      #... custom code/configuration
+    elsif RspecMultiEnv.current? :staging
+      #... custom code/configuration:
+    end
   end
-
-  env.when :staging do
-    #... custom code/configuration
-  end
-end
-
-describe 'Your Test' do
-  # rest of your tests that use the env specific config
 end
 ```
 
